@@ -1,0 +1,23 @@
+---
+layout: default
+title: CV
+description: Curriculum vitae for Bernard Kofi Sarpong.
+---
+{% assign profile = site.data.profile %}
+
+<section class="page-intro">
+  <p class="eyebrow">Curriculum Vitae</p>
+  <h1>CV</h1>
+  <p class="lead">The latest curriculum vitae is available below and can also be downloaded as a PDF.</p>
+  <div class="hero-actions">
+    <a class="button" href="{{ profile.cv_file | relative_url }}" target="_blank" rel="noopener">Download CV</a>
+    <a class="button button-secondary" href="{{ '/contact.html' | relative_url }}">Contact</a>
+  </div>
+</section>
+
+<section class="cv-frame">
+  <object data="{{ profile.cv_file | relative_url }}" type="application/pdf">
+    <p>The PDF preview could not be displayed. Please <a href="{{ profile.cv_file | relative_url }}">download the CV here</a>.</p>
+  </object>
+</section>
+

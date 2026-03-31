@@ -1,0 +1,87 @@
+---
+layout: default
+title: Home
+description: Bernard Kofi Sarpong is an economist and researcher working in development economics, labour demography, and behavioural economics.
+---
+{% assign profile = site.data.profile %}
+{% assign contact = site.data.contact %}
+{% assign publications = site.data.publications %}
+
+<section class="hero">
+  <div class="hero-copy">
+    <p class="eyebrow">{{ profile.title }}</p>
+    <h1>{{ profile.name }}</h1>
+    <p class="lead">{{ profile.subtitle }}</p>
+    <p class="subtle">Based in {{ profile.location }} | <a href="mailto:{{ contact.email }}">{{ contact.email }}</a></p>
+    <div class="hero-actions">
+      <a class="button" href="{{ '/cv.html' | relative_url }}">View CV</a>
+      <a class="button button-secondary" href="{{ '/contact.html' | relative_url }}">Contact</a>
+    </div>
+  </div>
+  <div class="hero-photo">
+    <img src="{{ profile.profile_image | relative_url }}" alt="Portrait placeholder for {{ profile.name }}">
+  </div>
+</section>
+
+<section class="grid-two">
+  <article class="panel panel-wide">
+    <h2>About</h2>
+    {% for paragraph in profile.biography %}
+      <p>{{ paragraph }}</p>
+    {% endfor %}
+  </article>
+
+  <article class="panel">
+    <h2>Research Fields</h2>
+    <ul class="inline-list">
+      {% for field in profile.research_fields %}
+        <li class="tag">{{ field }}</li>
+      {% endfor %}
+    </ul>
+  </article>
+
+  <article class="panel">
+    <h2>Research Interests</h2>
+    <ul class="plain-list">
+      {% for interest in profile.research_interests %}
+        <li>{{ interest }}</li>
+      {% endfor %}
+    </ul>
+  </article>
+
+  <article class="panel panel-wide">
+    <h2>Education</h2>
+    <ul class="plain-list">
+      {% for item in profile.education %}
+        <li>
+          <strong>{{ item.degree }}</strong><br>
+          {{ item.institution }}{% if item.location %}, {{ item.location }}{% endif %}<br>
+          <span class="item-meta">{{ item.dates }}</span>
+          {% if item.dissertation %}
+            <p>Dissertation: {{ item.dissertation }}</p>
+          {% endif %}
+          {% if item.distinction %}
+            <p>{{ item.distinction }}</p>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  </article>
+</section>
+
+<section class="section-block">
+  <div class="section-heading">
+    <h2>Selected Working Papers</h2>
+    <a class="text-link" href="{{ '/publications.html' | relative_url }}">See full list</a>
+  </div>
+  <div class="item-list">
+    {% for paper in publications.working_papers %}
+      <article class="item">
+        <h3>{{ paper.title }}</h3>
+        <p class="item-meta">{{ paper.authors }} ({{ paper.year }})</p>
+        <p>{{ paper.status }}</p>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+

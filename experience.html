@@ -1,0 +1,99 @@
+---
+layout: default
+title: Teaching & Experience
+description: Teaching, professional experience, service, skills, and languages for Bernard Kofi Sarpong.
+---
+{% assign experience = site.data.experience %}
+
+<section class="page-intro">
+  <p class="eyebrow">Teaching &amp; Experience</p>
+  <h1>Teaching, Professional Work, and Service</h1>
+  <p class="lead">This page highlights Bernard Kofi Sarpong's academic teaching roles, applied professional work, and supporting service areas.</p>
+</section>
+
+<section class="grid-two">
+  <article class="panel">
+    <h2>Teaching Experience</h2>
+    <ul class="plain-list">
+      {% for item in experience.teaching_experience %}
+        <li>
+          <strong>{{ item.role }}</strong><br>
+          {{ item.institution }}{% if item.location %}, {{ item.location }}{% endif %}<br>
+          <span class="item-meta">{{ item.dates }}</span>
+        </li>
+      {% endfor %}
+    </ul>
+  </article>
+
+  <article class="panel">
+    <h2>Professional Experience</h2>
+    <ul class="plain-list">
+      {% for item in experience.professional_experience %}
+        <li>
+          <strong>{{ item.role }}</strong><br>
+          {{ item.institution }}{% if item.location %}, {{ item.location }}{% endif %}<br>
+          <span class="item-meta">{{ item.dates }}</span>
+        </li>
+      {% endfor %}
+    </ul>
+  </article>
+</section>
+
+<section class="section-block grid-two">
+  <article class="panel">
+    <h2>Conference Coordination</h2>
+    {% if experience.conference_coordination.size > 0 %}
+      <ul class="plain-list">
+        {% for item in experience.conference_coordination %}
+          <li>
+            <strong>{{ item.title }}</strong>
+            {% if item.details %}
+              <p>{{ item.details }}</p>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p class="empty-state">{{ experience.conference_coordination_note }}</p>
+    {% endif %}
+  </article>
+
+  <article class="panel">
+    <h2>Journal Referee Services</h2>
+    {% if experience.journal_referee_services.size > 0 %}
+      <ul class="plain-list">
+        {% for item in experience.journal_referee_services %}
+          <li>
+            <strong>{{ item.title }}</strong>
+            {% if item.details %}
+              <p>{{ item.details }}</p>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p class="empty-state">{{ experience.journal_referee_services_note }}</p>
+    {% endif %}
+  </article>
+</section>
+
+<section class="section-block grid-two">
+  <article class="panel">
+    <h2>Skills</h2>
+    <ul class="inline-list">
+      {% for skill in experience.skills %}
+        <li class="tag">{{ skill }}</li>
+      {% endfor %}
+    </ul>
+  </article>
+
+  <article class="panel">
+    <h2>Languages</h2>
+    <ul class="plain-list">
+      {% for language in experience.languages %}
+        <li><strong>{{ language.name }}</strong><br>{{ language.level }}</li>
+      {% endfor %}
+    </ul>
+  </article>
+</section>
+

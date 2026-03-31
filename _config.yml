@@ -1,0 +1,8 @@
+title: Bernard Kofi Sarpong
+description: Academic website for economist and researcher Bernard Kofi Sarpong.
+baseurl: ""
+url: ""
+markdown: kramdown
+kramdown:
+  input: GFM
+

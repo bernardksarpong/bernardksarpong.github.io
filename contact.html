@@ -1,0 +1,47 @@
+---
+layout: default
+title: Contact
+description: Contact details for Bernard Kofi Sarpong.
+---
+{% assign contact = site.data.contact %}
+
+<section class="page-intro">
+  <p class="eyebrow">Contact</p>
+  <h1>Get in Touch</h1>
+  <p class="lead">For research collaboration, academic inquiries, or professional communication, the following contact channels are available.</p>
+</section>
+
+<section class="grid-two">
+  <article class="panel">
+    <h2>Contact Details</h2>
+    <ul class="contact-list">
+      <li>
+        <strong>Location</strong>
+        <span>{{ contact.location }}</span>
+      </li>
+      <li>
+        <strong>Email</strong>
+        <a href="mailto:{{ contact.email }}">{{ contact.email }}</a>
+      </li>
+      <li>
+        <strong>WhatsApp</strong>
+        <a href="{{ contact.whatsapp_url }}" target="_blank" rel="noopener">{{ contact.whatsapp_label }}</a>
+      </li>
+    </ul>
+  </article>
+
+  <article class="panel">
+    <h2>Online Profile</h2>
+    <ul class="contact-list">
+      <li>
+        <strong>{{ contact.google_scholar_label }}</strong>
+        {% if contact.google_scholar_url %}
+          <a href="{{ contact.google_scholar_url }}" target="_blank" rel="noopener">{{ contact.google_scholar_label }}</a>
+        {% else %}
+          <span>{{ contact.google_scholar_note }}</span>
+        {% endif %}
+      </li>
+    </ul>
+  </article>
+</section>
+

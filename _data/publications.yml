@@ -1,0 +1,21 @@
+# Publications and working papers.
+intro:
+  - Bernard's publication pipeline currently centers on empirical work in political behaviour, macroeconomic crises, and debt-growth dynamics.
+  - The page below is set up to grow over time, with separate sections for peer-reviewed work and working papers.
+published_work: []
+published_note: Peer-reviewed publications can be added here as they become available.
+working_papers:
+  - authors: Sarpong, B. & Goto, J.
+    year: "2026"
+    title: The Persistent Effects of Crisis-Time Enfranchisement on Protest Behaviour
+    status: Article manuscript to be submitted to the Economic Journal for possible publication.
+  - authors: Sarpong, B. & Goto, J.
+    year: "2026"
+    title: Exposure to Macroeconomic Crises and Risk Preferences
+    status: Article manuscript to be submitted to the Journal of Comparative Economics for possible publication.
+  - authors: Sarpong, B.
+    year: "2026"
+    title: Heterogeneous Debt-Growth Threshold Effects
+    status: Article manuscript to be submitted for possible publication.
+scholar_note: Full list of publications available on Google Scholar.
+

@@ -1,0 +1,49 @@
+# Teaching, professional experience, service, and skills.
+teaching_experience:
+  - role: Graduate Teaching Assistant
+    institution: National Graduate Institute for Policy Studies
+    location: Tokyo, Japan
+    dates: Oct 2023 - Mar 2025
+  - role: Tutor / Teaching Assistant
+    institution: University of Ghana
+    location: Accra, Ghana
+    dates: Sep 2013 - Sep 2022
+professional_experience:
+  - role: Data Science Consultant
+    institution: National Graduate Institute for Policy Studies
+    location: Tokyo, Japan
+    dates: Dec 2024 - Jul 2025
+  - role: Economic Intelligence Analyst; Fixed Income and Money Markets Dealer
+    institution: Republic Bank Ghana PLC
+    location: Accra, Ghana
+    dates: Sep 2016 - Sep 2022
+conference_coordination: []
+conference_coordination_note: Conference coordination entries can be added here as new activities arise.
+journal_referee_services: []
+journal_referee_services_note: Journal referee service entries can be added here as they become available.
+skills:
+  - Business analytics
+  - Econometric modelling
+  - Forecasting
+  - Data mining
+  - Data transformation
+  - Data storytelling
+  - Interactive dashboards
+  - Choropleth maps
+  - Coefficient plots
+  - Data interpretation
+  - Report writing
+  - Stata
+  - Python (beginner)
+  - EViews
+  - Microsoft Excel
+  - Microsoft Word
+  - PowerPoint
+languages:
+  - name: English
+    level: Fluent
+  - name: Spanish
+    level: CEFR B2
+  - name: French
+    level: CEFR A2
+
