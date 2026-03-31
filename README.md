@@ -32,6 +32,42 @@ Most text on the site lives in the YAML files inside `_data/`.
 5. Commit the changes.
 6. Wait a minute or two for GitHub Pages to publish the update.
 
+## No-Code Browser Editor
+
+This repository now includes a browser-based editor at:
+
+- `https://bernardksarpong.github.io/editor.html`
+
+The editor lets you update content through forms instead of opening YAML files manually.
+
+### One-Time Setup
+
+1. In GitHub, create a fine-grained personal access token.
+2. Give it access to only this repository.
+3. Under repository permissions, set `Contents` to `Read and write`.
+4. Copy the token.
+
+GitHub documentation:
+
+- https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens
+- https://docs.github.com/en/rest/repos/contents#create-or-update-file-contents
+
+### How To Use The Editor
+
+1. Open `https://bernardksarpong.github.io/editor.html`.
+2. Paste the token into the token field.
+3. Click `Load current content`.
+4. Edit any section using the form fields.
+5. Click `Save` for one section or `Save all text changes`.
+6. For the profile photo or CV, use the upload buttons in the `Assets` section.
+7. Wait about a minute for GitHub Pages to publish the change.
+
+### Security Note
+
+- Do not share the token with anyone.
+- Only enable `Remember token on this device` on a private computer you trust.
+- If the token is ever exposed, revoke it in GitHub and create a new one.
+
 ## Which File Controls What
 
 - Edit `_data/profile.yml` to update the name, biography, education, research fields, and research interests.

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex,nofollow">
+    <title>Site Editor | Bernard Kofi Sarpong</title>
+    <link rel="stylesheet" href="/assets/css/editor.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+    <script defer src="/assets/js/editor.js"></script>
+  </head>
+  <body>
+    <main class="editor-shell">
+      <header class="editor-header">
+        <div>
+          <p class="editor-eyebrow">No-Code Editor</p>
+          <h1>Edit the website without touching code</h1>
+          <p class="editor-intro">Use this page to update text, publications, experience, contact details, the profile image, and the CV file. Changes are saved directly to the GitHub repository through a browser form.</p>
+        </div>
+        <div class="editor-header-links">
+          <a href="/">View website</a>
+          <a href="https://github.com/bernardksarpong/bernardksarpong.github.io" target="_blank" rel="noopener">Open repository</a>
+        </div>
+      </header>
+
+      <section class="editor-card editor-auth">
+        <div class="editor-auth-grid">
+          <div class="editor-field editor-field-full">
+            <label for="github-token">GitHub fine-grained personal access token</label>
+            <input id="github-token" type="password" autocomplete="off" placeholder="Paste a token with access to this repository">
+            <p class="editor-help">Needed only for saving. Loading the current public content works without it, but saving changes requires repository write access.</p>
+          </div>
+
+          <div class="editor-field">
+            <label class="editor-checkbox">
+              <input id="remember-token" type="checkbox">
+              <span>Remember token on this device</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="editor-toolbar">
+          <button id="load-content" class="button button-secondary" type="button">Load current content</button>
+          <button id="save-all" class="button" type="button">Save all text changes</button>
+        </div>
+
+        <div class="editor-links">
+          <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens" target="_blank" rel="noopener">How to create a fine-grained token</a>
+          <a href="https://docs.github.com/en/rest/repos/contents#create-or-update-file-contents" target="_blank" rel="noopener">GitHub file update API reference</a>
+        </div>
+
+        <div id="editor-status" class="editor-status" role="status" aria-live="polite">Loading editor...</div>
+      </section>
+
+      <nav class="editor-nav" aria-label="Editor sections">
+        <a href="#assets-section">Assets</a>
+        <a href="#profile-section">Profile</a>
+        <a href="#research-section">Research</a>
+        <a href="#experience-section">Experience</a>
+        <a href="#publications-section">Publications</a>
+        <a href="#contact-section">Contact</a>
+      </nav>
+
+      <section id="assets-section" class="editor-card">
+        <div class="section-head">
+          <div>
+            <p class="section-eyebrow">Assets</p>
+            <h2>Profile image and CV</h2>
+            <p>Replace the public photo and downloadable CV without editing any file paths.</p>
+          </div>
+        </div>
+
+        <div class="asset-grid">
+          <article class="asset-card">
+            <h3>Profile image</h3>
+            <img id="profile-preview" src="/assets/img/profile.jpg" alt="Current profile image preview">
+            <div class="editor-field editor-field-full">
+              <label for="profile-upload">Upload a new image</label>
+              <input id="profile-upload" type="file" accept="image/*">
+              <p class="editor-help">The image will be converted and saved as <code>assets/img/profile.jpg</code>.</p>
+            </div>
+            <button id="upload-profile" class="button button-secondary" type="button">Upload profile image</button>
+          </article>
+
+          <article class="asset-card">
+            <h3>CV file</h3>
+            <p><a id="cv-preview-link" href="/assets/files/Bernard_Sarpong_CV.pdf" target="_blank" rel="noopener">Open current CV PDF</a></p>
+            <div class="editor-field editor-field-full">
+              <label for="cv-upload">Upload a new PDF</label>
+              <input id="cv-upload" type="file" accept="application/pdf">
+              <p class="editor-help">The file will replace <code>assets/files/Bernard_Sarpong_CV.pdf</code>.</p>
+            </div>
+            <button id="upload-cv" class="button button-secondary" type="button">Upload CV PDF</button>
+          </article>
+        </div>
+      </section>
+
+      <section id="profile-section" class="editor-card editor-section">
+        <div class="section-head">
+          <div>
+            <p class="section-eyebrow">Home</p>
+            <h2>Profile</h2>
+            <p>Name, bio, education, research fields, and interests.</p>
+          </div>
+          <button class="button button-secondary" data-save-section="profile" type="button">Save profile</button>
+        </div>
+        <div id="profile-fields" class="editor-form"></div>
+      </section>
+
+      <section id="research-section" class="editor-card editor-section">
+        <div class="section-head">
+          <div>
+            <p class="section-eyebrow">Research</p>
+            <h2>Research page</h2>
+            <p>Overview, methods, current research questions, and Google Scholar details.</p>
+          </div>
+          <button class="button button-secondary" data-save-section="research" type="button">Save research</button>
+        </div>
+        <div id="research-fields" class="editor-form"></div>
+      </section>
+
+      <section id="experience-section" class="editor-card editor-section">
+        <div class="section-head">
+          <div>
+            <p class="section-eyebrow">Experience</p>
+            <h2>Teaching, work, skills, and service</h2>
+            <p>Academic roles, professional experience, conference coordination, referee service, skills, and languages.</p>
+          </div>
+          <button class="button button-secondary" data-save-section="experience" type="button">Save experience</button>
+        </div>
+        <div id="experience-fields" class="editor-form"></div>
+      </section>
+
+      <section id="publications-section" class="editor-card editor-section">
+        <div class="section-head">
+          <div>
+            <p class="section-eyebrow">Publications</p>
+            <h2>Publications and working papers</h2>
+            <p>Add or edit publication entries without changing the page template.</p>
+          </div>
+          <button class="button button-secondary" data-save-section="publications" type="button">Save publications</button>
+        </div>
+        <div id="publications-fields" class="editor-form"></div>
+      </section>
+
+      <section id="contact-section" class="editor-card editor-section">
+        <div class="section-head">
+          <div>
+            <p class="section-eyebrow">Contact</p>
+            <h2>Contact details</h2>
+            <p>Email, WhatsApp, location, and profile links.</p>
+          </div>
+          <button class="button button-secondary" data-save-section="contact" type="button">Save contact</button>
+        </div>
+        <div id="contact-fields" class="editor-form"></div>
+      </section>
+    </main>
+  </body>
+</html>
+
