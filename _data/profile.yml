@@ -1,12 +1,12 @@
 name: Bernard Kofi Sarpong
 title: Economist
-subtitle: Applied Microeconometrics, Development Economics, Behavioural Economics, and Political Economics
+subtitle: Applied Microeconometrics, Development Economics, Behavioural Economics, Political Economics, Money & Banking
 location: Tokyo, Japan
 profile_image: /assets/img/profile.jpg
 cv_file: /assets/files/Bernard_Sarpong_CV.pdf
 biography:
-  - Bernard Kofi Sarpong is an economist and researcher based in Tokyo, Japan. His work examines how exogenous shocks, macroeconomic crises, and institutional exposures shape behaviour, economic risk responses, and long-run outcomes over the life course.
-  - His research combines applied microeconometrics, labour demography, development economics, and behavioural economics, with a strong interest in causal inference, impact evaluation, and policy-relevant empirical analysis.
+  - My current research interests lie at the intersection of applied microeconometrics, development economics, and behavioural economics.
+  - I focus on leveraging both natural experiments and quasi-experimental designs to identify the long-term causal effects of exogenous shocks across diverse contexts.
 education:
   - degree: Ph.D. in Development Economics
     institution: National Graduate Institute for Policy Studies
