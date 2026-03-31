@@ -268,6 +268,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function wireEditor() {
   document.getElementById("load-content").addEventListener("click", () => loadAllSections());
+  document.getElementById("test-token").addEventListener("click", () => testToken());
   document.getElementById("save-all").addEventListener("click", () => saveAllSections());
   document.getElementById("upload-profile").addEventListener("click", () => uploadProfileImage());
   document.getElementById("upload-cv").addEventListener("click", () => uploadCvFile());
@@ -317,6 +318,51 @@ async function loadAllSections() {
     setStatus("Content loaded. You can edit the forms below and save any section you change.", "success");
   } catch (error) {
     setStatus(`Could not load the current content: ${error.message}`, "error");
+  } finally {
+    setBusy(false);
+  }
+}
+
+async function testToken() {
+  if (state.busy) {
+    return;
+  }
+
+  try {
+    requireToken();
+    setBusy(true);
+    setStatus("Testing the GitHub token...", "warning");
+
+    const userResponse = await fetch("https://api.github.com/user", {
+      headers: buildHeaders(getToken()),
+    });
+
+    if (userResponse.status === 401) {
+      throw new Error("GitHub rejected the token. Paste a fresh token exactly as copied from GitHub. Fine-grained tokens usually start with github_pat_.");
+    }
+
+    if (!userResponse.ok) {
+      const message = await readGitHubError(userResponse);
+      throw new Error(`GitHub could not validate the token. ${message}`);
+    }
+
+    const user = await userResponse.json();
+    const repoResponse = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}`, {
+      headers: buildHeaders(getToken()),
+    });
+
+    if (repoResponse.status === 404 || repoResponse.status === 403) {
+      throw new Error(`The token belongs to ${user.login}, but it does not have access to ${REPO_OWNER}/${REPO_NAME}. Create a fine-grained token for this repository with Contents set to Read and write.`);
+    }
+
+    if (!repoResponse.ok) {
+      const message = await readGitHubError(repoResponse);
+      throw new Error(`The token was accepted, but repository access could not be verified. ${message}`);
+    }
+
+    setStatus(`Token works. Authenticated as ${user.login} and repository access is available.`, "success");
+  } catch (error) {
+    setStatus(error.message, "error");
   } finally {
     setBusy(false);
   }
@@ -684,7 +730,16 @@ async function updateRepoFile(path, content, sha, message, token, isBinary = fal
   });
 
   if (!response.ok) {
-    const errorText = await response.text();
+    const errorText = await readGitHubError(response);
+
+    if (response.status === 401) {
+      throw new Error(`GitHub rejected the token while saving ${path}. Paste a fresh token exactly as copied from GitHub and test it before saving again.`);
+    }
+
+    if (response.status === 403 || response.status === 404) {
+      throw new Error(`The token was accepted but does not have write access to ${path}. Use a token for this repository with Contents set to Read and write. ${errorText}`);
+    }
+
     throw new Error(`GitHub returned ${response.status} while saving ${path}. ${errorText}`);
   }
 
@@ -705,7 +760,12 @@ function buildHeaders(token) {
 }
 
 function getToken() {
-  return document.getElementById("github-token").value.trim();
+  return document
+    .getElementById("github-token")
+    .value
+    .trim()
+    .replace(/^['"]+|['"]+$/g, "")
+    .replace(/\s+/g, "");
 }
 
 function requireToken() {
@@ -842,4 +902,15 @@ function encodePath(path) {
 
 function capitalize(value) {
   return value.charAt(0).toUpperCase() + value.slice(1);
+}
+
+async function readGitHubError(response) {
+  const text = await response.text();
+
+  try {
+    const payload = JSON.parse(text);
+    return payload.message || text;
+  } catch {
+    return text;
+  }
 }
