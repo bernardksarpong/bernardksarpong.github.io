@@ -15,9 +15,9 @@ This repository contains a lightweight GitHub Pages website built with plain HTM
 - `assets/img/profile.jpg` - Replaceable profile photo
 - `assets/files/Bernard_Sarpong_CV.pdf` - Replaceable CV PDF
 - `index.html` - Home page
-- `research.html` - Research page
+- `research.html` - Research page with publications and working papers
 - `experience.html` - Teaching & Experience page
-- `publications.html` - Publications page
+- `publications.html` - Redirects old publications links to the Research page
 - `cv.html` - CV page
 - `contact.html` - Contact page
 
@@ -56,11 +56,12 @@ GitHub documentation:
 
 1. Open `https://bernardksarpong.github.io/editor.html`.
 2. Paste the token into the token field.
-3. Click `Load current content`.
-4. Edit any section using the form fields.
-5. Click `Save` for one section or `Save all text changes`.
-6. For the profile photo or CV, use the upload buttons in the `Assets` section.
-7. Wait about a minute for GitHub Pages to publish the change.
+3. Click `Test token` to confirm the token is valid.
+4. Click `Load current content`.
+5. Edit any section using the form fields.
+6. Click `Save` for one section or `Save all text changes`.
+7. For the profile photo or CV, use the upload buttons in the `Assets` section.
+8. Wait about a minute for GitHub Pages to publish the change.
 
 ### Security Note
 
@@ -73,7 +74,7 @@ GitHub documentation:
 - Edit `_data/profile.yml` to update the name, biography, education, research fields, and research interests.
 - Edit `_data/research.yml` to update the research overview, current questions, methods, and Google Scholar entry.
 - Edit `_data/experience.yml` to update teaching roles, professional positions, conference coordination, referee service, skills, and languages.
-- Edit `_data/publications.yml` to add published work or working papers.
+- Edit `_data/publications.yml` to add published work or working papers shown on the Research page.
 - Edit `_data/contact.yml` to update location, email, WhatsApp, and Google Scholar link details.
 
 ## Replace The Profile Photo

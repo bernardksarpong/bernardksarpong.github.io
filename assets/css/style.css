@@ -222,6 +222,35 @@ h3 {
   font-size: clamp(2rem, 4vw, 3rem);
 }
 
+.content-section {
+  max-width: 48rem;
+}
+
+.content-section h2 {
+  margin: 0 0 0.65rem;
+  font-size: 1.18rem;
+}
+
+.field-listing {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(221, 217, 208, 0.8);
+}
+
+.field-listing-label {
+  margin: 0 0 0.3rem;
+  color: var(--muted);
+  font-family: "Avenir Next", "Segoe UI", "Helvetica Neue", sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.field-listing-value {
+  margin: 0;
+  color: #303748;
+}
+
 .grid-two {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));

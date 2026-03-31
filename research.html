@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Research
-description: Research agenda and working papers for Bernard Kofi Sarpong.
+description: Research, publications, and working papers for Bernard Kofi Sarpong.
 ---
 {% assign profile = site.data.profile %}
 {% assign research = site.data.research %}
@@ -9,22 +9,18 @@ description: Research agenda and working papers for Bernard Kofi Sarpong.
 
 <section class="page-intro">
   <p class="eyebrow">Research</p>
-  <h1>Research Agenda</h1>
+  <h1>Research</h1>
   {% for paragraph in research.overview %}
     <p{% if forloop.first %} class="lead"{% endif %}>{{ paragraph }}</p>
   {% endfor %}
 </section>
 
-<section class="grid-two">
-  <article class="panel">
-    <h2>Fields</h2>
-    <ul class="inline-list">
-      {% for field in profile.research_fields %}
-        <li class="tag">{{ field }}</li>
-      {% endfor %}
-    </ul>
-  </article>
+<section class="content-section">
+  <h2>Research Fields</h2>
+  <p class="field-listing-value">{{ profile.research_fields | join: ', ' }}</p>
+</section>
 
+<section class="section-block grid-two">
   <article class="panel">
     <h2>Methods</h2>
     <ul class="plain-list">
@@ -44,20 +40,38 @@ description: Research agenda and working papers for Bernard Kofi Sarpong.
   </article>
 </section>
 
-<section class="section-block">
-  <div class="section-heading">
-    <h2>Working Papers</h2>
-  </div>
-  <div class="item-list">
-    {% for paper in publications.working_papers %}
-      <article class="item">
-        <h3>{{ paper.title }}</h3>
-        <p class="item-meta">{{ paper.authors }} ({{ paper.year }})</p>
-        <p>{{ paper.status }}</p>
-      </article>
-    {% endfor %}
-  </div>
-</section>
+{% if publications.published_work.size > 0 %}
+  <section class="section-block">
+    <div class="section-heading">
+      <h2>Publications</h2>
+    </div>
+    <div class="item-list">
+      {% for item in publications.published_work %}
+        <article class="item">
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.citation }}</p>
+        </article>
+      {% endfor %}
+    </div>
+  </section>
+{% endif %}
+
+{% if publications.working_papers.size > 0 %}
+  <section class="section-block">
+    <div class="section-heading">
+      <h2>Working Papers</h2>
+    </div>
+    <div class="item-list">
+      {% for paper in publications.working_papers %}
+        <article class="item">
+          <h3>{{ paper.title }}</h3>
+          <p class="item-meta">{{ paper.authors }} ({{ paper.year }})</p>
+          <p>{{ paper.status }}</p>
+        </article>
+      {% endfor %}
+    </div>
+  </section>
+{% endif %}
 
 <section class="section-block">
   <article class="panel">
@@ -68,4 +82,3 @@ description: Research agenda and working papers for Bernard Kofi Sarpong.
     {% endif %}
   </article>
 </section>
-
