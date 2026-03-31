@@ -8,53 +8,77 @@ description: Teaching, professional experience, service, skills, and languages f
 <section class="page-intro">
   <p class="eyebrow">Teaching &amp; Experience</p>
   <h1>Teaching, Professional Work, and Service</h1>
-  <p class="lead">This page highlights Bernard Kofi Sarpong's academic teaching roles, applied professional work, and supporting service areas.</p>
+  <p class="lead">This page highlights Bernard Kofi Sarpong's academic teaching, applied analytical work, conference support, referee service, and technical skills.</p>
 </section>
 
-<section class="grid-two">
-  <article class="panel">
+<section>
+  <div class="section-heading">
     <h2>Teaching Experience</h2>
-    <ul class="plain-list">
-      {% for item in experience.teaching_experience %}
-        <li>
-          <strong>{{ item.role }}</strong><br>
-          {{ item.institution }}{% if item.location %}, {{ item.location }}{% endif %}<br>
-          <span class="item-meta">{{ item.dates }}</span>
-        </li>
-      {% endfor %}
-    </ul>
-  </article>
+  </div>
+  <div class="item-list">
+    {% for item in experience.teaching_experience %}
+      <article class="item">
+        <h3>{{ item.role }}</h3>
+        <p class="item-subtitle">{{ item.institution }}{% if item.location %}, {{ item.location }}{% endif %}</p>
+        <p class="item-meta">{{ item.dates }}</p>
+        {% if item.highlights %}
+          <ul class="item-details">
+            {% for highlight in item.highlights %}
+              <li>{{ highlight }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </article>
+    {% endfor %}
+  </div>
+</section>
 
-  <article class="panel">
+<section class="section-block">
+  <div class="section-heading">
     <h2>Professional Experience</h2>
-    <ul class="plain-list">
-      {% for item in experience.professional_experience %}
-        <li>
-          <strong>{{ item.role }}</strong><br>
-          {{ item.institution }}{% if item.location %}, {{ item.location }}{% endif %}<br>
-          <span class="item-meta">{{ item.dates }}</span>
-        </li>
-      {% endfor %}
-    </ul>
-  </article>
+  </div>
+  <div class="item-list">
+    {% for item in experience.professional_experience %}
+      <article class="item">
+        <h3>{{ item.role }}</h3>
+        <p class="item-subtitle">{{ item.institution }}{% if item.location %}, {{ item.location }}{% endif %}</p>
+        <p class="item-meta">{{ item.dates }}</p>
+        {% if item.highlights %}
+          <ul class="item-details">
+            {% for highlight in item.highlights %}
+              <li>{{ highlight }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </article>
+    {% endfor %}
+  </div>
 </section>
 
 <section class="section-block grid-two">
   <article class="panel">
     <h2>Conference Coordination</h2>
     {% if experience.conference_coordination.size > 0 %}
-      <ul class="plain-list">
+      <div class="item-list">
         {% for item in experience.conference_coordination %}
-          <li>
-            <strong>{{ item.title }}</strong>
-            {% if item.details %}
-              <p>{{ item.details }}</p>
+          <article class="item">
+            <h3>{{ item.role }}{% if item.event %}, {{ item.event }}{% endif %}</h3>
+            {% if item.institution %}
+              <p class="item-subtitle">{{ item.institution }}</p>
             {% endif %}
-          </li>
+            <p class="item-meta">{{ item.dates }}</p>
+            {% if item.highlights %}
+              <ul class="item-details">
+                {% for highlight in item.highlights %}
+                  <li>{{ highlight }}</li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </article>
         {% endfor %}
-      </ul>
+      </div>
     {% else %}
-      <p class="empty-state">{{ experience.conference_coordination_note }}</p>
+      <p class="empty-state">Conference coordination entries can be added here as new activities arise.</p>
     {% endif %}
   </article>
 
@@ -63,16 +87,11 @@ description: Teaching, professional experience, service, skills, and languages f
     {% if experience.journal_referee_services.size > 0 %}
       <ul class="plain-list">
         {% for item in experience.journal_referee_services %}
-          <li>
-            <strong>{{ item.title }}</strong>
-            {% if item.details %}
-              <p>{{ item.details }}</p>
-            {% endif %}
-          </li>
+          <li>{{ item }}</li>
         {% endfor %}
       </ul>
     {% else %}
-      <p class="empty-state">{{ experience.journal_referee_services_note }}</p>
+      <p class="empty-state">Journal referee service entries can be added here as they become available.</p>
     {% endif %}
   </article>
 </section>
@@ -80,11 +99,14 @@ description: Teaching, professional experience, service, skills, and languages f
 <section class="section-block grid-two">
   <article class="panel">
     <h2>Skills</h2>
-    <ul class="inline-list">
-      {% for skill in experience.skills %}
-        <li class="tag">{{ skill }}</li>
+    <div class="skill-groups">
+      {% for group in experience.skill_groups %}
+        <div class="skill-group">
+          <h3>{{ group.category }}</h3>
+          <p>{{ group.details }}</p>
+        </div>
       {% endfor %}
-    </ul>
+    </div>
   </article>
 
   <article class="panel">
@@ -96,4 +118,3 @@ description: Teaching, professional experience, service, skills, and languages f
     </ul>
   </article>
 </section>
-

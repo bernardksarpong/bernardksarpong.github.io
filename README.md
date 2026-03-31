@@ -70,6 +70,25 @@ working_papers:
     status: Under review.
 ```
 
+## Add Or Edit Experience Entries
+
+Each role in `_data/experience.yml` can include a `highlights` list.
+
+Example:
+
+```yml
+teaching_experience:
+  - role: Example Role
+    institution: Example University
+    location: Example City
+    dates: Jan 2025 - Dec 2025
+    highlights:
+      - First accomplishment or responsibility.
+      - Second accomplishment or responsibility.
+```
+
+Skills are grouped under `skill_groups` so they are easy to edit without touching the HTML templates.
+
 ## GitHub Pages Publishing
 
 If GitHub Pages is not already enabled for the repository:

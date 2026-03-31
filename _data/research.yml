@@ -14,5 +14,4 @@ methods:
 scholar:
   label: Google Scholar
   note: Full list of publications available on Google Scholar.
-  url:
-
+  url: https://scholar.google.com/citations?user=cbKK6DAAAAAJ&hl=en&oi=ao
