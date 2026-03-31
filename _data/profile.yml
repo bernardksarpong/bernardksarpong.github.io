@@ -7,22 +7,7 @@ cv_file: /assets/files/Bernard_Sarpong_CV.pdf
 biography:
   - I am an economist with over a decade of combined academic and banking industry experience.  My current research interests lie at the intersection of applied microeconometrics, development economics, and behavioural economics.
   - I focus on leveraging both natural experiments and quasi-experimental designs to identify the long-term causal effects of exogenous shocks across diverse contexts.
-education:
-  - degree: Ph.D. in Development Economics
-    institution: National Graduate Institute for Policy Studies
-    location: Tokyo, Japan
-    dates: Oct 2022 - Sep 2025
-    dissertation: Crisis-Time Exposures and the Persistence of Behavioural Tendencies
-  - degree: Master of Philosophy in Economics
-    institution: University of Ghana
-    location: Legon, Ghana
-    dates: Sep 2014 - Jul 2016
-    distinction: Recipient of the Tony & Awele Elumelu Prize for Best Graduating Master of Philosophy Student in Economics
-  - degree: Bachelor of Arts in Economics
-    institution: University of Ghana
-    location: Legon, Ghana
-    dates: Aug 2009 - May 2013
-    distinction: First Class Honours
+education: []
 research_fields:
   - Applied Microeconometrics
   - Development Economics
