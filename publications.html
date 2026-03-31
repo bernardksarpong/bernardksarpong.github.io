@@ -14,10 +14,10 @@ description: Publications and working papers for Bernard Kofi Sarpong.
   {% endfor %}
 </section>
 
-<section class="grid-two">
-  <article class="panel">
-    <h2>Peer-Reviewed Publications</h2>
-    {% if publications.published_work.size > 0 %}
+{% if publications.published_work.size > 0 %}
+  <section class="grid-two">
+    <article class="panel">
+      <h2>Peer-Reviewed Publications</h2>
       <div class="item-list">
         {% for item in publications.published_work %}
           <article class="item">
@@ -26,19 +26,27 @@ description: Publications and working papers for Bernard Kofi Sarpong.
           </article>
         {% endfor %}
       </div>
-    {% else %}
-      <p class="empty-state">{{ publications.published_note }}</p>
-    {% endif %}
-  </article>
+    </article>
 
-  <article class="panel">
-    <h2>{{ research.scholar.label }}</h2>
-    <p>{{ publications.scholar_note }}</p>
-    {% if research.scholar.url %}
-      <p><a href="{{ research.scholar.url }}" target="_blank" rel="noopener">View profile</a></p>
-    {% endif %}
-  </article>
-</section>
+    <article class="panel">
+      <h2>{{ research.scholar.label }}</h2>
+      <p>{{ publications.scholar_note }}</p>
+      {% if research.scholar.url %}
+        <p><a href="{{ research.scholar.url }}" target="_blank" rel="noopener">View profile</a></p>
+      {% endif %}
+    </article>
+  </section>
+{% else %}
+  <section>
+    <article class="panel">
+      <h2>{{ research.scholar.label }}</h2>
+      <p>{{ publications.scholar_note }}</p>
+      {% if research.scholar.url %}
+        <p><a href="{{ research.scholar.url }}" target="_blank" rel="noopener">View profile</a></p>
+      {% endif %}
+    </article>
+  </section>
+{% endif %}
 
 <section class="section-block">
   <div class="section-heading">
@@ -54,4 +62,3 @@ description: Publications and working papers for Bernard Kofi Sarpong.
     {% endfor %}
   </div>
 </section>
-
