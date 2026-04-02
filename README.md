@@ -7,7 +7,7 @@ This repository contains a lightweight GitHub Pages website built with plain HTM
 - `_config.yml` - Site settings for GitHub Pages / Jekyll
 - `_data/profile.yml` - Homepage profile content, education, research fields, and interests
 - `_data/research.yml` - Research overview and Google Scholar details
-- `_data/experience.yml` - Teaching, professional experience, service, skills, and languages
+- `_data/experience.yml` - Teaching roles for the Teaching & Experience page
 - `_data/publications.yml` - Publications and working papers
 - `_data/contact.yml` - Contact details and profile links
 - `_layouts/default.html` - Shared page layout and top navigation
@@ -73,7 +73,7 @@ GitHub documentation:
 
 - Edit `_data/profile.yml` to update the name, biography, education, research fields, and research interests.
 - Edit `_data/research.yml` to update the research overview and Google Scholar entry.
-- Edit `_data/experience.yml` to update teaching roles, professional positions, conference coordination, referee service, skills, and languages.
+- Edit `_data/experience.yml` to update teaching roles.
 - Edit `_data/publications.yml` to add published work or working papers shown on the Research page.
 - Edit `_data/contact.yml` to update location, personal email, official/work email, and Google Scholar link details.
 
@@ -107,7 +107,7 @@ working_papers:
     status: Under review.
 ```
 
-## Add Or Edit Experience Entries
+## Add Or Edit Teaching Entries
 
 Each role in `_data/experience.yml` can include a `highlights` list.
 
@@ -123,8 +123,6 @@ teaching_experience:
       - First accomplishment or responsibility.
       - Second accomplishment or responsibility.
 ```
-
-Skills are grouped under `skill_groups` so they are easy to edit without touching the HTML templates.
 
 ## GitHub Pages Publishing
 
