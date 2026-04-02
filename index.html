@@ -10,7 +10,7 @@ description: Bernard Kofi Sarpong is an economist and researcher working in deve
   <div class="hero-copy">
     <p class="eyebrow">{{ profile.title }}</p>
     <h1>{{ profile.name }}</h1>
-
+    {% if profile.subtitle and profile.subtitle != '' %}
       <p class="lead">{{ profile.subtitle }}</p>
     {% endif %}
   </div>
