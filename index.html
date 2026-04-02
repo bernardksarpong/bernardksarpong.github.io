@@ -9,9 +9,6 @@ description: Bernard Kofi Sarpong is an economist and researcher working in deve
 <section class="hero">
   <div class="hero-copy">
     <h1>{{ profile.name }}</h1>
-    {% if profile.subtitle and profile.subtitle != '' %}
-      <p class="lead">{{ profile.subtitle }}</p>
-    {% endif %}
   </div>
   <div class="hero-photo">
     <img src="{{ profile.profile_image | relative_url }}" alt="Portrait placeholder for {{ profile.name }}">
