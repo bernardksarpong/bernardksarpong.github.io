@@ -55,6 +55,9 @@ h3 {
 }
 
 .site-shell {
+  width: calc(100% - 2rem);
+  max-width: var(--max-width);
+  width: -webkit-min(calc(100% - 2rem), var(--max-width));
   width: min(calc(100% - 2rem), var(--max-width));
   margin: 0 auto;
 }
@@ -133,13 +136,16 @@ h3 {
 }
 
 .hero {
+  display: -ms-grid;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 110px;
+  grid-template-columns: minmax(0, 1fr) 200px;
   grid-template-areas:
     "copy photo"
     "actions photo";
-  column-gap: 1.5rem;
+  -webkit-column-gap: 2.5rem;
+  column-gap: 2.5rem;
   row-gap: 0.9rem;
+  -webkit-align-items: start;
   align-items: start;
   margin-bottom: 3rem;
 }
@@ -185,33 +191,55 @@ h3 {
 
 .hero-photo {
   grid-area: photo;
-  width: 110px;
+  width: 200px;
+  -webkit-justify-self: end;
   justify-self: end;
+  -webkit-align-self: start;
   align-self: start;
 }
 
 .hero-photo img {
+  display: block;
   width: 100%;
+  height: 250px; /* fallback for browsers without aspect-ratio */
   aspect-ratio: 4 / 5;
+  -o-object-fit: cover;
   object-fit: cover;
+  -o-object-position: center top;
+  object-position: center top;
   background: #efefea;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
 }
 
+@supports (aspect-ratio: 4 / 5) {
+  .hero-photo img {
+    height: auto;
+  }
+}
+
 .button {
+  display: -webkit-inline-flex;
   display: inline-flex;
+  -webkit-align-items: center;
   align-items: center;
+  -webkit-justify-content: center;
   justify-content: center;
-  padding: 0.8rem 1.2rem;
-  border: 1px solid var(--accent);
+  padding: 0.75rem 1.35rem;
+  border: 1.5px solid var(--accent);
   border-radius: 999px;
   background: var(--accent);
   color: #ffffff;
-  font-size: 0.95rem;
+  font-size: 0.93rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
   line-height: 1.2;
   white-space: nowrap;
+  cursor: pointer;
+  text-decoration: none;
+  -webkit-transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+  transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
 }
 
 .button:hover {
@@ -226,6 +254,8 @@ h3 {
 }
 
 .button-secondary:hover {
+  background: var(--accent);
+  border-color: var(--accent);
   color: #ffffff;
 }
 
@@ -463,11 +493,15 @@ h3 {
   }
 
   .hero {
-    grid-template-columns: minmax(0, 1fr) 100px;
+    grid-template-columns: minmax(0, 1fr) 155px;
   }
 
   .hero-photo {
-    width: 100px;
+    width: 155px;
+  }
+
+  .hero-photo img {
+    height: 194px; /* 155 * 5/4 fallback */
   }
 
   .panel-wide {
@@ -513,8 +547,13 @@ h3 {
   }
 
   .hero-photo {
-    width: 88px;
+    width: 110px;
+    -webkit-justify-self: start;
     justify-self: start;
+  }
+
+  .hero-photo img {
+    height: 138px; /* 110 * 5/4 fallback */
   }
 
   .hero-actions {
