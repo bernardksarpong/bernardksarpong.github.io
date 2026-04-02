@@ -20,42 +20,6 @@ description: Research, publications, and working papers for Bernard Kofi Sarpong
   <p class="field-listing-value">{{ profile.research_fields | join: ', ' }}</p>
 </section>
 
-<section class="section-block grid-two">
-  <article class="panel">
-    <h2>Methods</h2>
-    <ul class="plain-list">
-      {% for method in research.methods %}
-        <li>{{ method }}</li>
-      {% endfor %}
-    </ul>
-  </article>
-
-  <article class="panel panel-wide">
-    <h2>Current Questions</h2>
-    <ul class="plain-list">
-      {% for question in research.current_questions %}
-        <li>{{ question }}</li>
-      {% endfor %}
-    </ul>
-  </article>
-</section>
-
-{% if publications.published_work.size > 0 %}
-  <section class="section-block">
-    <div class="section-heading">
-      <h2>Publications</h2>
-    </div>
-    <div class="item-list">
-      {% for item in publications.published_work %}
-        <article class="item">
-          <h3>{{ item.title }}</h3>
-          <p>{{ item.citation }}</p>
-        </article>
-      {% endfor %}
-    </div>
-  </section>
-{% endif %}
-
 {% if publications.working_papers.size > 0 %}
   <section class="section-block">
     <div class="section-heading">
@@ -67,6 +31,22 @@ description: Research, publications, and working papers for Bernard Kofi Sarpong
           <h3>{{ paper.title }}</h3>
           <p class="item-meta">{{ paper.authors }} ({{ paper.year }})</p>
           <p>{{ paper.status }}</p>
+        </article>
+      {% endfor %}
+    </div>
+  </section>
+{% endif %}
+
+{% if publications.published_work.size > 0 %}
+  <section class="section-block">
+    <div class="section-heading">
+      <h2>Publications</h2>
+    </div>
+    <div class="item-list">
+      {% for item in publications.published_work %}
+        <article class="item">
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.citation }}</p>
         </article>
       {% endfor %}
     </div>

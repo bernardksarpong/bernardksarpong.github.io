@@ -6,7 +6,7 @@ This repository contains a lightweight GitHub Pages website built with plain HTM
 
 - `_config.yml` - Site settings for GitHub Pages / Jekyll
 - `_data/profile.yml` - Homepage profile content, education, research fields, and interests
-- `_data/research.yml` - Research overview, methods, and research agenda
+- `_data/research.yml` - Research overview and Google Scholar details
 - `_data/experience.yml` - Teaching, professional experience, service, skills, and languages
 - `_data/publications.yml` - Publications and working papers
 - `_data/contact.yml` - Contact details and profile links
@@ -72,7 +72,7 @@ GitHub documentation:
 ## Which File Controls What
 
 - Edit `_data/profile.yml` to update the name, biography, education, research fields, and research interests.
-- Edit `_data/research.yml` to update the research overview, current questions, methods, and Google Scholar entry.
+- Edit `_data/research.yml` to update the research overview and Google Scholar entry.
 - Edit `_data/experience.yml` to update teaching roles, professional positions, conference coordination, referee service, skills, and languages.
 - Edit `_data/publications.yml` to add published work or working papers shown on the Research page.
 - Edit `_data/contact.yml` to update location, email, WhatsApp, and Google Scholar link details.
