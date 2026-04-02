@@ -7,21 +7,19 @@ description: Bernard Kofi Sarpong is an economist and researcher working in deve
 {% assign contact = site.data.contact %}
 
 <section class="hero">
-  <div class="hero-heading">
-    <div class="hero-copy">
-      <p class="eyebrow">{{ profile.title }}</p>
-      <h2>{{ profile.name }}</h2>
-      {% if profile.subtitle and profile.subtitle != '' %}
-        <p class="lead">{{ profile.subtitle }}</p>
-      {% endif %}
-    </div>
-    <div class="hero-photo">
-      <img src="{{ profile.profile_image | relative_url }}" alt="Portrait placeholder for {{ profile.name }}">
+  <div class="hero-copy">
+    <p class="eyebrow">{{ profile.title }}</p>
+    <h2>{{ profile.name }}</h2>
+    {% if profile.subtitle and profile.subtitle != '' %}
+      <p class="lead">{{ profile.subtitle }}</p>
+    {% endif %}
+    <div class="hero-actions">
+      <a class="button" href="{{ '/cv.html' | relative_url }}">View CV</a>
+      <a class="button button-secondary" href="{{ '/contact.html' | relative_url }}">Contact</a>
     </div>
   </div>
-  <div class="hero-actions">
-    <a class="button" href="{{ '/cv.html' | relative_url }}">View CV</a>
-    <a class="button button-secondary" href="{{ '/contact.html' | relative_url }}">Contact</a>
+  <div class="hero-photo">
+    <img src="{{ profile.profile_image | relative_url }}" alt="Portrait placeholder for {{ profile.name }}">
   </div>
 </section>
 
