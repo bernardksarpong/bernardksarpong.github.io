@@ -75,7 +75,7 @@ GitHub documentation:
 - Edit `_data/research.yml` to update the research overview and Google Scholar entry.
 - Edit `_data/experience.yml` to update teaching roles, professional positions, conference coordination, referee service, skills, and languages.
 - Edit `_data/publications.yml` to add published work or working papers shown on the Research page.
-- Edit `_data/contact.yml` to update location, email, WhatsApp, and Google Scholar link details.
+- Edit `_data/contact.yml` to update location, personal email, official/work email, WhatsApp, and Google Scholar link details.
 
 ## Replace The Profile Photo
 

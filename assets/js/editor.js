@@ -229,6 +229,7 @@ const sectionSchemas = {
     fields: [
       { type: "text", key: "location", label: "Location" },
       { type: "email", key: "email", label: "Email" },
+      { type: "email", key: "official_email", label: "Official / work email", full: true },
       { type: "text", key: "whatsapp_label", label: "WhatsApp display text" },
       { type: "url", key: "whatsapp_url", label: "WhatsApp URL", full: true },
       { type: "text", key: "google_scholar_label", label: "Google Scholar label" },

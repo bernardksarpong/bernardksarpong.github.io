@@ -23,6 +23,12 @@ description: Contact details for Bernard Kofi Sarpong.
         <strong>Email</strong>
         <a href="mailto:{{ contact.email }}">{{ contact.email }}</a>
       </li>
+      {% if contact.official_email and contact.official_email != "" %}
+        <li>
+          <strong>Official / Work Email</strong>
+          <a href="mailto:{{ contact.official_email }}">{{ contact.official_email }}</a>
+        </li>
+      {% endif %}
 
     </ul>
   </article>
@@ -41,4 +47,3 @@ description: Contact details for Bernard Kofi Sarpong.
     </ul>
   </article>
 </section>
-
