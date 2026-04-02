@@ -1,7 +1,7 @@
-intro:
-  - Bernard's publication pipeline currently centers on empirical work in political behaviour, macroeconomic crises, and debt-growth dynamics.
-  - The page below is set up to grow over time, with separate sections for peer-reviewed work and working papers.
-published_work: []
+intro: []
+published_work:
+  - title: Cost-efficiency and bank profitability during health crisis
+    citation: Taylor, D., Sarpong, B., & Cudjoe, E. Y. (2024). Cost-efficiency and bank profitability during health crisis. Applied Economics Letters, 31(8), 732-737. Available at https://doi.org/10.1080/13504851.2022.2146644
 published_note: Peer-reviewed publications can be added here as they become available.
 working_papers:
   - authors: Sarpong, B. & Goto, J.
