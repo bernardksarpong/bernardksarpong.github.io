@@ -134,8 +134,8 @@ h3 {
 
 .hero {
   display: grid;
-  grid-template-columns: minmax(0, 1.85fr) minmax(150px, 0.42fr);
-  gap: 2rem;
+  grid-template-columns: minmax(0, 1.95fr) minmax(100px, 0.28fr);
+  gap: 1.5rem;
   align-items: start;
   margin-bottom: 3rem;
 }
@@ -173,7 +173,7 @@ h3 {
 
 .hero-photo {
   padding-top: 0.35rem;
-  max-width: 200px;
+  max-width: 125px;
   justify-self: end;
 }
 
@@ -449,7 +449,7 @@ h3 {
   }
 
   .hero-photo {
-    max-width: 200px;
+    max-width: 130px;
     justify-self: start;
     padding-top: 0;
   }
@@ -487,7 +487,7 @@ h3 {
   }
 
   .hero-photo {
-    max-width: 170px;
+    max-width: 110px;
   }
 
   .hero-actions {
