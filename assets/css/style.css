@@ -134,8 +134,8 @@ h3 {
 
 .hero {
   display: grid;
-  grid-template-columns: minmax(0, 1.65fr) minmax(220px, 0.65fr);
-  gap: 2.5rem;
+  grid-template-columns: minmax(0, 1.85fr) minmax(150px, 0.42fr);
+  gap: 2rem;
   align-items: start;
   margin-bottom: 3rem;
 }
@@ -173,7 +173,7 @@ h3 {
 
 .hero-photo {
   padding-top: 0.35rem;
-  max-width: 280px;
+  max-width: 200px;
   justify-self: end;
 }
 
@@ -449,7 +449,9 @@ h3 {
   }
 
   .hero-photo {
-    max-width: 360px;
+    max-width: 200px;
+    justify-self: start;
+    padding-top: 0;
   }
 
   .panel-wide {
@@ -482,6 +484,10 @@ h3 {
 
   .hero-copy h1 {
     font-size: 2.45rem;
+  }
+
+  .hero-photo {
+    max-width: 170px;
   }
 
   .hero-actions {
