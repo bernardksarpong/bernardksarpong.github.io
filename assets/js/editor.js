@@ -702,16 +702,12 @@ async function fetchRepoMeta(path, token) {
 
 async function updateRepoFile(path, content, sha, message, token, isBinary = false) {
   const encodedContent = isBinary ? content : encodeBase64(content);
-  const response = await fetch(`${API_BASE}/${encodePath(path)}`, {
-    method: "PUT",
-    headers: buildHeaders(token),
-    body: JSON.stringify({
-      message,
-      content: encodedContent,
-      sha,
-      branch: DEFAULT_BRANCH,
-    }),
-  });
+  let response = await sendRepoUpdate(path, encodedContent, sha, message, token);
+
+  if (response.status === 409) {
+    const latest = await fetchRepoMeta(path, token);
+    response = await sendRepoUpdate(path, encodedContent, latest.sha, message, token);
+  }
 
   if (!response.ok) {
     const errorText = await readGitHubError(response);
@@ -724,10 +720,27 @@ async function updateRepoFile(path, content, sha, message, token, isBinary = fal
       throw new Error(`The token was accepted but does not have write access to ${path}. Use a token for this repository with Contents set to Read and write. ${errorText}`);
     }
 
+    if (response.status === 409) {
+      throw new Error(`GitHub reported a file version conflict for ${path}. The editor retried with the latest version, but the conflict remained. Load current content and save again.`);
+    }
+
     throw new Error(`GitHub returned ${response.status} while saving ${path}. ${errorText}`);
   }
 
   return response.json();
+}
+
+async function sendRepoUpdate(path, encodedContent, sha, message, token) {
+  return fetch(`${API_BASE}/${encodePath(path)}`, {
+    method: "PUT",
+    headers: buildHeaders(token),
+    body: JSON.stringify({
+      message,
+      content: encodedContent,
+      sha,
+      branch: DEFAULT_BRANCH,
+    }),
+  });
 }
 
 function buildHeaders(token) {
