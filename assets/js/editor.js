@@ -146,6 +146,38 @@ const sectionSchemas = {
       { type: "text", key: "scholar_note", label: "Scholar note", full: true },
     ],
   },
+  media: {
+    path: "_data/media.yml",
+    message: "Update media content via site editor",
+    containerId: "media-fields",
+    fields: [
+      {
+        type: "list",
+        key: "intro",
+        label: "Intro paragraphs",
+        full: true,
+        addLabel: "Add intro paragraph",
+        itemType: "textarea",
+      },
+      {
+        type: "list",
+        key: "newspaper_articles",
+        label: "Newspaper articles",
+        full: true,
+        addLabel: "Add newspaper article",
+        itemType: "object",
+        fields: [
+          { type: "text", key: "authors", label: "Authors", full: true },
+          { type: "text", key: "year", label: "Year" },
+          { type: "text", key: "date", label: "Date (e.g. August 03)" },
+          { type: "text", key: "title", label: "Title", full: true },
+          { type: "text", key: "outlet", label: "Outlet" },
+          { type: "text", key: "page", label: "Page(s)" },
+          { type: "url", key: "url", label: "URL", full: true },
+        ],
+      },
+    ],
+  },
   contact: {
     path: "_data/contact.yml",
     message: "Update contact content via site editor",

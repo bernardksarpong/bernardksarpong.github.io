@@ -1,0 +1,33 @@
+---
+layout: default
+title: Media
+description: Newspaper articles and media appearances by Bernard Kofi Sarpong.
+---
+{% assign media = site.data.media %}
+
+<section class="page-intro">
+  <p class="eyebrow">Media</p>
+  <h1>Media</h1>
+  {% for paragraph in media.intro %}
+    <p{% if forloop.first %} class="lead"{% endif %}>{{ paragraph }}</p>
+  {% endfor %}
+</section>
+
+{% if media.newspaper_articles.size > 0 %}
+  <section class="section-block">
+    <div class="section-heading">
+      <h2>Newspaper Articles</h2>
+    </div>
+    <div class="item-list">
+      {% for article in media.newspaper_articles %}
+        <article class="item">
+          <h3>{{ article.title }}</h3>
+          <p class="item-meta">{{ article.authors }} ({{ article.year }}, {{ article.date }}). <em>{{ article.outlet }}</em>, {{ article.page }}.</p>
+          {% if article.url %}
+            <p><a href="{{ article.url }}" target="_blank" rel="noopener" class="text-link">Read article</a></p>
+          {% endif %}
+        </article>
+      {% endfor %}
+    </div>
+  </section>
+{% endif %}

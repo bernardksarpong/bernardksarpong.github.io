@@ -13,7 +13,6 @@
       <div class="site-shell header-inner">
         <div class="brand">
           <a class="site-title" href="{{ '/' | relative_url }}">{{ site.data.profile.name }}</a>
-          <p class="site-subtitle">{{ site.data.profile.title }}</p>
         </div>
         <nav class="site-nav" aria-label="Primary">
           <ul>
@@ -21,6 +20,7 @@
             <li><a href="{{ '/research.html' | relative_url }}"{% if current == 'research.html' %} class="active" aria-current="page"{% endif %}>Research</a></li>
             <li><a href="{{ '/experience.html' | relative_url }}"{% if current == 'experience.html' %} class="active" aria-current="page"{% endif %}>Teaching</a></li>
             <li><a href="{{ '/cv.html' | relative_url }}"{% if current == 'cv.html' %} class="active" aria-current="page"{% endif %}>CV</a></li>
+            <li><a href="{{ '/media.html' | relative_url }}"{% if current == 'media.html' %} class="active" aria-current="page"{% endif %}>Media</a></li>
             <li><a href="{{ '/contact.html' | relative_url }}"{% if current == 'contact.html' %} class="active" aria-current="page"{% endif %}>Contact</a></li>
           </ul>
         </nav>

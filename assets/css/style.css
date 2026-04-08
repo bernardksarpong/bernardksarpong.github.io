@@ -92,20 +92,22 @@ h3 {
   text-decoration: none;
 }
 
-.site-subtitle,
 .site-nav a,
 .eyebrow,
 .item-meta,
 .text-link,
 .contact-list strong,
-.button {
+.button,
+.hero-profession {
   font-family: "Avenir Next", "Segoe UI", "Helvetica Neue", sans-serif;
 }
 
-.site-subtitle {
-  margin: 0;
+.hero-profession {
+  margin: 0.35rem 0 0;
   color: var(--muted);
-  font-size: 0.86rem;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
 }
 
 .site-nav ul {
@@ -138,13 +140,13 @@ h3 {
 .hero {
   display: -ms-grid;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 200px;
+  grid-template-columns: minmax(0, 1fr) 240px;
   grid-template-areas:
     "copy photo"
     "actions photo";
-  -webkit-column-gap: 2.5rem;
-  column-gap: 2.5rem;
-  row-gap: 0.9rem;
+  -webkit-column-gap: 3rem;
+  column-gap: 3rem;
+  row-gap: 1.25rem;
   -webkit-align-items: start;
   align-items: start;
   margin-bottom: 3rem;
@@ -191,7 +193,7 @@ h3 {
 
 .hero-photo {
   grid-area: photo;
-  width: 200px;
+  width: 240px;
   -webkit-justify-self: end;
   justify-self: end;
   -webkit-align-self: start;
@@ -201,7 +203,7 @@ h3 {
 .hero-photo img {
   display: block;
   width: 100%;
-  height: 250px; /* fallback for browsers without aspect-ratio */
+  height: 300px; /* fallback for browsers without aspect-ratio */
   aspect-ratio: 4 / 5;
   -o-object-fit: cover;
   object-fit: cover;
@@ -493,15 +495,15 @@ h3 {
   }
 
   .hero {
-    grid-template-columns: minmax(0, 1fr) 155px;
+    grid-template-columns: minmax(0, 1fr) 185px;
   }
 
   .hero-photo {
-    width: 155px;
+    width: 185px;
   }
 
   .hero-photo img {
-    height: 194px; /* 155 * 5/4 fallback */
+    height: 231px; /* 185 * 5/4 fallback */
   }
 
   .panel-wide {
