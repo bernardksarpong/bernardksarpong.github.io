@@ -5,13 +5,15 @@ location: Tokyo, Japan
 profile_image: /assets/img/profile.jpg
 cv_file: /assets/files/Bernard_Sarpong_CV.pdf
 biography:
-  - Economist, Market Analyst, and Emerging Data Scientist with over a decade of combined experience in academia and the banking industry.  My current research interests lie at the intersection of applied microeconometrics, development economics, and behavioural economics. I leverage quasi-experiments to identify the long-term causal effects of exogenous shocks across diverse contexts.
+  - I am an economist and emerging data scientist with over a decade of combined academic and banking industry experience.  My current research interests lie at the intersection of applied microeconometrics, development economics, and behavioural economics.
+  - I leverage quasi-experiments to identify the long-term causal effects of exogenous shocks across diverse contexts.
 education: []
 research_fields:
   - Applied Econometrics
-  - Behavioural Economics
+  - Behavioural and Experimental Economics
   - Development Economics
   - Monetary and Financial Economics
+  - Environmental and Resource Economics
 research_interests:
   - Economic Research
   - Economic Consulting
